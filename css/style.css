@@ -509,6 +509,68 @@ p {
 }
 
 
+/* =========================================
+   EXPLORE PHYSICS — TOPIC CARDS
+========================================= */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.topic-card {
+    position: relative;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(77, 163, 255, 0.45);
+    background: var(--bg-tertiary);
+}
+
+.topic-card .card-number {
+    display: block;
+    margin-bottom: 1.25rem;
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.topic-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+}
+
+.topic-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.topic-card .text-link {
+    display: inline-block;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.topic-card .text-link:hover {
+    color: var(--accent-blue);
+}
+
 /* ---------------------------------------------------------
    9. TOPIC / CATEGORY TAGS
    --------------------------------------------------------- */
@@ -871,6 +933,14 @@ p {
 
     .btn {
         width: 100%;
+    }
+
+        .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topic-card {
+        padding: 1.5rem;
     }
 }
 
