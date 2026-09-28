@@ -1047,6 +1047,33 @@ p {
     color: var(--text-primary);
 }
 
+/* ---------------------------------------------------------
+   Clean URL footer links
+   --------------------------------------------------------- */
+
+.footer-grid > div:not(.footer-brand) > h3 {
+    margin-bottom: 18px;
+
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.footer-grid > div:not(.footer-brand) > a {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+
+    transition: color var(--transition-fast);
+}
+
+.footer-grid > div:not(.footer-brand) > a:hover {
+    color: var(--text-primary);
+}
+
 .footer-bottom {
     display: flex;
 
