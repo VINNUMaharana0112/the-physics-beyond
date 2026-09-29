@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#070B14"/><stop offset="1" stop-color="#111F35"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#1B4D79" stop-opacity=".52"/><stop offset="1" stop-color="#0A1423" stop-opacity="0"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE4A3"/><stop offset=".48" stop-color="#E8B65A"/><stop offset="1" stop-color="#A96A27"/></linearGradient>
+  <linearGradient id="orange" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#FF9A45"/><stop offset="1" stop-color="#FF6B21"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4DA3FF" stop-opacity="0"/><stop offset=".5" stop-color="#4DA3FF" stop-opacity=".9"/><stop offset="1" stop-color="#4DA3FF" stop-opacity="0"/></linearGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="24"/></filter>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="9" result="blur"/><feOffset dy="8"/><feComponentTransfer><feFuncA type="linear" slope=".4"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<style>
+  .brand{font-family:Arial,sans-serif;font-weight:700;letter-spacing:2.2px;font-size:26px}
+  .title{font-family:Arial,sans-serif;font-weight:700;font-size:55px;fill:#F5F7FB;letter-spacing:-1.3px}
+  .sub{font-family:Arial,sans-serif;font-size:23px;fill:#A9B9CC}
+  .eyebrow{font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;font-size:15px;fill:#E8B65A}
+</style>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<ellipse cx="951" cy="298" rx="333" ry="296" fill="url(#glow)"/>
+<path d="M0 565 C185 504 250 624 424 554 S675 494 842 568 S1073 621 1200 538" fill="none" stroke="#4DA3FF" stroke-opacity=".18" stroke-width="2"/>
+<path d="M0 590 C182 530 251 646 430 582 S672 520 844 591 S1073 650 1200 561" fill="none" stroke="#4DA3FF" stroke-opacity=".12" stroke-width="2"/>
+<rect x="0" y="0" width="1200" height="7" fill="url(#gold)"/>
+<g transform="translate(91 92)" fill="none" stroke="url(#gold)" stroke-width="2.7" opacity=".95"><ellipse rx="31" ry="12" transform="rotate(-32)"/><ellipse rx="31" ry="12" transform="rotate(32)"/><ellipse rx="31" ry="12" transform="rotate(90)"/><circle r="4.7" fill="url(#gold)" stroke="none"/></g>
+<text x="143" y="88" class="brand" fill="#F5F7FB">THE PHYSICS</text><text x="143" y="119" class="brand" fill="#FF7A2D">BEYOND</text>
+<text x="94" y="220" class="eyebrow">PHYSICS  •  SPACE  •  TIME</text>
+<text x="94" y="302" class="title">Can time really</text><text x="94" y="374" class="title">slow down?</text>
+<rect x="94" y="452" width="63" height="4" rx="2" fill="url(#orange)"/>
+<text x="94" y="499" class="sub">Discover how motion and gravity change the passage of time.</text>
+<text x="94" y="574" font-family="Arial,sans-serif" font-size="18" font-weight="600" fill="#E8B65A">THEPHYSICSBEYOND.COM</text>
+<line x1="745" y1="125" x2="745" y2="505" stroke="#E8B65A" stroke-opacity=".18"/>
+<g transform="translate(915 320)" fill="none">
+          <path d="M-220 120 C-110 25 110 25 220 120 M-220 78 C-110 -17 110 -17 220 78 M-220 36 C-110 -59 110 -59 220 36 M-220 -6 C-110 -101 110 -101 220 -6 M-220 -48 C-110 -143 110 -143 220 -48" stroke="#4DA3FF" stroke-opacity=".36" stroke-width="2"/>
+          <path d="M-170 -145 C-115 -58 -115 58 -170 145 M-85 -170 C-42 -60 -42 60 -85 170 M0 -180 C0 -60 0 60 0 180 M85 -170 C42 -60 42 60 85 170 M170 -145 C115 -58 115 58 170 145" stroke="#E8B65A" stroke-opacity=".38" stroke-width="2"/>
+          <circle cx="75" cy="-55" r="88" fill="#0B1422" stroke="url(#gold)" stroke-width="5"/>
+          <path d="M75 -55 L75 -108 M75 -55 L116 -30" stroke="#FFE4A3" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="75" cy="-55" r="7" fill="#FF8B35" stroke="none"/>
+          <circle cx="-170" cy="-171" r="3" fill="#DDEBFF"/><circle cx="195" cy="126" r="3" fill="#DDEBFF"/>
+        </g>
+</svg>
