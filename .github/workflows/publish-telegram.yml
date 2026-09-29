@@ -1,0 +1,65 @@
+name: Publish Telegram message
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: Message to publish to the Telegram channel
+        required: true
+        type: string
+      confirm_publish:
+        description: Choose publish to send the message now
+        required: true
+        type: choice
+        options:
+          - do-not-publish
+          - publish
+
+permissions:
+  contents: none
+
+jobs:
+  publish:
+    if: ${{ inputs.confirm_publish == 'publish' }}
+    runs-on: ubuntu-latest
+    environment: TELEGRAM_BOT_TOKEN
+    steps:
+      - name: Validate message and publishing configuration
+        env:
+          MESSAGE: ${{ inputs.message }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import os
+          import sys
+
+          message = os.environ.get("MESSAGE", "")
+          if not message.strip():
+              sys.exit("The message cannot be empty.")
+          if len(message) > 4096:
+              sys.exit("Telegram text messages cannot exceed 4096 characters.")
+          if not os.environ.get("TELEGRAM_BOT_TOKEN"):
+              sys.exit("Add TELEGRAM_BOT_TOKEN as a secret in the TELEGRAM_BOT_TOKEN environment.")
+          if not os.environ.get("TELEGRAM_CHAT_ID"):
+              sys.exit("Add TELEGRAM_CHAT_ID as a variable in the TELEGRAM_BOT_TOKEN environment.")
+          PY
+
+      - name: Send message to Telegram
+        env:
+          MESSAGE: ${{ inputs.message }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+        run: |
+          response="$(curl --silent --show-error --fail \
+            --request POST \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MESSAGE}")"
+
+          if ! jq --exit-status '.ok == true' >/dev/null <<< "$response"; then
+            jq --raw-output '.description // "Telegram rejected the message."' <<< "$response" >&2
+            exit 1
+          fi
+
+          echo "Message sent to Telegram."
