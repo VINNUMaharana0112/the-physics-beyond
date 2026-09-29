@@ -1,11 +1,36 @@
-https://thephysicsbeyond.com/
-https://thephysicsbeyond.com/explore/
-https://thephysicsbeyond.com/articles/
-https://thephysicsbeyond.com/articles/black-hole-event-horizon/
-https://thephysicsbeyond.com/articles/time-dilation/
-https://thephysicsbeyond.com/articles/quantum-physics/
-https://thephysicsbeyond.com/videos/
-https://thephysicsbeyond.com/bookshelf/
-https://thephysicsbeyond.com/about/
-https://thephysicsbeyond.com/contact/
-https://thephysicsbeyond.com/privacy/
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://thephysicsbeyond.com/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/explore/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/articles/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/articles/black-hole-event-horizon/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/articles/time-dilation/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/articles/quantum-physics/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/videos/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/bookshelf/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/about/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/contact/</loc>
+  </url>
+  <url>
+    <loc>https://thephysicsbeyond.com/privacy/</loc>
+  </url>
+</urlset>
