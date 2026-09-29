@@ -226,15 +226,13 @@ p {
 .site-logo {
     display: flex;
     align-items: center;
-
-    gap: 0.25rem;
-
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1rem;
-
-    color: var(--text-primary);
     text-decoration: none;
+}
+
+.site-logo img {
+    display: block;
+    width: 90px;
+    height: auto;
 }
 
 .site-logo span:last-child {
@@ -1011,6 +1009,26 @@ p {
     gap: 50px;
 
     padding-bottom: 45px;
+}
+
+/* ---------------------------------------------------------
+   Footer brand alignment
+   --------------------------------------------------------- */
+
+.footer-grid > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-grid > div:first-child .site-logo {
+    margin-left: -10px;
+}
+
+.footer-grid > div:first-child p {
+    margin-top: 14px;
+    margin-bottom: 0;
+    max-width: 380px;
 }
 
 .footer-brand p {
