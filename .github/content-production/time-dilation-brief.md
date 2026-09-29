@@ -11,7 +11,7 @@
   2. Clocks at different heights in Earth's gravitational field tick at slightly different rates.
   3. Atomic-clock experiments measure these differences, and relativity corrections are part of GPS.
 - **Tone:** Clear, curious, careful with observer/frame descriptions.
-- **Stage:** Research checked for this brief / full YouTube narration and short-form copy drafted / production pending.
+- **Stage:** Draft script source-reviewed / short-form copy drafted / production pending.
 - **Publication date for derivatives:** To be scheduled.
 
 ## Research and fact check
@@ -37,7 +37,7 @@
 
 ### YouTube video
 
-- **Status:** Full narration draft; source review completed, production and final script review pending.
+- **Status:** Full narration draft reviewed against the listed sources; production and final edit review pending.
 - **Working title:** Can Time Really Slow Down? Relativity Explained
 - **Target runtime:** About 7–8 minutes; approximately 860 narration words before pauses and visual beats.
 - **Thumbnail concept:** Two clocks at different heights with the question “Does time really slow down?”
@@ -67,11 +67,11 @@ That does not mean a clock is broken. Each clock measures time along its own pat
 
 **[VISUAL: A spacecraft passes Earth. Label the Earth frame and the spacecraft clock.]**
 
-**NARRATION:** Imagine a spacecraft moving past Earth at a constant, very high speed. From Earth's reference frame, the spacecraft's clock accumulates less time than an identical clock at rest in that frame.
+**NARRATION:** Imagine a spacecraft moving past Earth at a constant, very high speed. Mark two ticks on the spacecraft's clock. In Earth's inertial frame, more time passes between those ticks than the moving clock records for itself. An identical clock at rest in that frame accumulates more time during that interval.
 
 The size of the effect is described by the Lorentz factor. On screen, we can write gamma equals one over the square root of one minus v squared over c squared. Here, v is the relative speed, and c is the speed of light.
 
-For the two events marked by a clock moving in that frame, the frame's elapsed time is gamma times the clock's own elapsed time. At ordinary speeds, gamma is almost one, so the difference is tiny. As the speed gets closer to the speed of light, the difference grows.
+The frame-measured interval between those two ticks is gamma times the proper time recorded by the moving clock. At ordinary speeds, gamma is almost one, so the difference is tiny. As the speed gets closer to the speed of light, the difference grows.
 
 The traveler does not feel their own clock slow down. Their heartbeat, thoughts, and clock all seem normal to them. The difference appears when we compare clocks using a clearly specified frame and events.
 
@@ -117,7 +117,7 @@ Your head is also a little higher than your feet, so the same principle applies.
 
 **NARRATION:** Relativity also matters in satellite navigation. GPS satellites move quickly relative to clocks on Earth's surface, and they orbit in a weaker gravitational field.
 
-Those effects influence satellite clocks in opposite directions: motion makes the satellite clock run slower in the comparison, while the weaker gravity makes it run faster. GPS has to account for relativistic effects in its clock and signal calculations to provide accurate time and positions.
+Those effects influence satellite clocks in opposite directions relative to clocks on Earth's surface: motion makes a satellite clock run slower, while the weaker gravity makes it run faster. GPS has to account for relativistic effects in its clock and signal calculations to provide accurate time and positions.
 
 This is a practical reminder that relativity is not only an abstract idea. Its predictions are part of systems we use every day.
 
@@ -169,6 +169,7 @@ For the full explanation, read “Can Time Really Slow Down?” at The Physics B
 
 - [x] Core explanation is anchored to the published article.
 - [x] Initial source review completed for the claims listed above.
+- [x] Draft narration reviewed against the linked sources; the moving-clock comparison now specifies its events and frame.
 - [ ] Review the final video script and Reel cut against the sources before recording/publishing.
 - [ ] Produce the video, Reel cover, and supporting graphics.
 - [ ] Add the final YouTube link to the article and Telegram post.
