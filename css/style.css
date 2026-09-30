@@ -329,7 +329,7 @@ p {
         var(--bg-primary);
 }
 
-.hero .container {
+.home-hero .container {
     position: relative;
     z-index: 1;
 
@@ -363,6 +363,10 @@ p {
     position: relative;
     z-index: 1;
 
+    max-width: 900px;
+}
+
+.home-hero .hero-content {
     max-width: 760px;
 }
 
@@ -1247,7 +1251,7 @@ p {
 
 @media (max-width: 900px) {
 
-    .hero .container {
+    .home-hero .container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
