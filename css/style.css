@@ -329,6 +329,16 @@ p {
         var(--bg-primary);
 }
 
+.hero .container {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
 .hero::before {
     content: "";
 
@@ -353,7 +363,30 @@ p {
     position: relative;
     z-index: 1;
 
-    max-width: 900px;
+    max-width: 760px;
+}
+
+.hero-visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77, 163, 255, 0.16), transparent 68%);
+    filter: blur(18px);
+}
+
+.hero-visual img {
+    position: relative;
+    width: min(100%, 500px);
+    height: auto;
+    filter: drop-shadow(0 16px 42px rgba(0, 0, 0, 0.28));
 }
 
 .hero-eyebrow {
@@ -1213,6 +1246,15 @@ p {
    --------------------------------------------------------- */
 
 @media (max-width: 900px) {
+
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-visual img {
+        width: min(65vw, 360px);
+    }
 
     .grid-3,
     .grid-4 {
