@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thephysicsbeyond.com/content/content-metadata.schema.json",
+  "title": "The Physics Beyond content metadata",
+  "description": "Shared publishing metadata for articles, videos, Reels, and Bookshelf products.",
+  "oneOf": [
+    { "$ref": "#/$defs/article" },
+    { "$ref": "#/$defs/video" },
+    { "$ref": "#/$defs/reel" },
+    { "$ref": "#/$defs/product" }
+  ],
+  "$defs": {
+    "common": {
+      "type": "object",
+      "required": ["type", "slug", "title", "description", "category", "author", "language", "status"],
+      "properties": {
+        "type": { "type": "string", "enum": ["article", "video", "reel", "product"] },
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "category": { "type": "string", "minLength": 1 },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "author": { "type": "string", "minLength": 1 },
+        "language": { "type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$" },
+        "status": { "type": "string", "enum": ["draft", "review", "ready", "published", "archived"] },
+        "publishedAt": { "type": "string", "format": "date" },
+        "updatedAt": { "type": "string", "format": "date" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "socialImage": { "type": "string", "format": "uri-reference" },
+        "altText": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "published" } }, "required": ["status"] },
+          "then": { "required": ["publishedAt", "canonicalUrl"] }
+        }
+      ]
+    },
+    "article": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        { "type": "object", "properties": {
+          "type": { "const": "article" },
+          "readingTimeMinutes": { "type": "integer", "minimum": 1 },
+          "sources": { "type": "array", "items": { "$ref": "#/$defs/reference" } },
+          "heroImage": { "type": "string", "format": "uri-reference" }
+        } }
+      ],
+      "required": ["readingTimeMinutes", "sources"]
+    },
+    "video": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        { "type": "object", "properties": {
+          "type": { "const": "video" },
+          "platform": { "type": "string", "minLength": 1 },
+          "platformId": { "type": "string", "minLength": 1 },
+          "platformUrl": { "type": "string", "format": "uri" },
+          "embedUrl": { "type": "string", "format": "uri" },
+          "durationSeconds": { "type": "integer", "minimum": 1 },
+          "thumbnail": { "type": "string", "format": "uri-reference" },
+          "transcript": { "type": "string", "format": "uri-reference" },
+          "captionsLanguage": { "type": "string" }
+        } }
+      ],
+      "required": ["platform", "platformId", "platformUrl", "durationSeconds", "thumbnail"]
+    },
+    "reel": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        { "type": "object", "properties": {
+          "type": { "const": "reel" },
+          "platform": { "type": "string", "enum": ["Instagram", "YouTube Shorts", "TikTok", "Other"] },
+          "platformUrl": { "type": "string", "format": "uri" },
+          "platformId": { "type": "string", "minLength": 1 },
+          "durationSeconds": { "type": "integer", "minimum": 1, "maximum": 180 },
+          "aspectRatio": { "type": "string", "enum": ["9:16", "4:5", "1:1"] },
+          "thumbnail": { "type": "string", "format": "uri-reference" },
+          "caption": { "type": "string" },
+          "transcript": { "type": "string", "format": "uri-reference" },
+          "captionsLanguage": { "type": "string" }
+        } }
+      ],
+      "required": ["platform", "platformUrl", "durationSeconds", "aspectRatio", "thumbnail", "caption"]
+    },
+    "product": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        { "type": "object", "required": ["productKind", "format", "price", "currency", "availability"], "properties": {
+          "type": { "const": "product" },
+          "productKind": { "type": "string", "enum": ["physical_book", "digital_download", "affiliate"] },
+          "format": { "type": "string", "minLength": 1 },
+          "price": { "oneOf": [{ "type": "number", "minimum": 0 }, { "type": "null" }] },
+          "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "availability": { "type": "string", "minLength": 1 },
+          "authorOrCreator": { "type": "string" },
+          "publisherOrBrand": { "type": "string" },
+          "image": { "type": "string", "format": "uri-reference" },
+          "whatIsIncluded": { "type": "array", "items": { "type": "string" } },
+          "audience": { "type": "string" },
+          "deliveryMethod": { "type": "string" },
+          "shippingDetails": { "type": "string" },
+          "deliveryEstimate": { "type": "string" },
+          "checkoutUrl": { "type": "string", "format": "uri" },
+          "affiliateUrl": { "type": "string", "format": "uri" },
+          "affiliateDisclosure": { "type": "string" },
+          "fulfillmentStatus": { "type": "string", "enum": ["not-for-sale", "manual", "hosted-checkout", "automated"] }
+        }, "allOf": [
+          { "if": { "properties": { "productKind": { "const": "physical_book" } }, "required": ["productKind"] }, "then": { "required": ["authorOrCreator", "publisherOrBrand", "shippingDetails", "deliveryEstimate", "fulfillmentStatus"] } },
+          { "if": { "properties": { "productKind": { "const": "digital_download" } }, "required": ["productKind"] }, "then": { "required": ["whatIsIncluded", "deliveryMethod", "fulfillmentStatus"] } },
+          { "if": { "properties": { "productKind": { "const": "affiliate" } }, "required": ["productKind"] }, "then": { "required": ["affiliateUrl", "affiliateDisclosure"] } }
+        ] }
+      ]
+    },
+    "reference": {
+      "type": "object",
+      "required": ["title", "url"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "publisher": { "type": "string" },
+        "accessedAt": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="/assets/brand/favicon/favicon-64.png">
     <link rel="canonical" href="https://thephysicsbeyond.com/bookshelf/higher-mathematics/">
     <meta name="description" content="Higher Mathematics by Maharana Sibasankar: a printed guide for CAT, MAT, XAT, IPMAT-I, IPMAT-R, JIPMAT and other management entrance tests. INR 756.">
+    <meta name="commerce-api-base" content="">
     <meta name="author" content="The Physics Beyond">
     <meta property="og:type" content="product">
     <meta property="og:title" content="Higher Mathematics | BOOKSHELF">
@@ -108,7 +109,28 @@
                             <a class="btn btn-primary" href="mailto:thephysicsbeyond@gmail.com?subject=Book%20order%3A%20Higher%20Mathematics&amp;body=Hello%2C%20I%20would%20like%20to%20order%20Higher%20Mathematics%20by%20Maharana%20Sibasankar.%20Please%20confirm%20delivery%20availability%20and%20shipping%20charges.">
                                 Enquire / order by email
                             </a>
-                            <p class="purchase-note">Email to confirm delivery availability and any shipping charges before ordering. No online checkout is available yet.</p>
+                            <p class="purchase-note">Email to confirm delivery availability and any shipping charges. Online checkout appears here only when ordering is available.</p>
+                            <form class="product-purchase" data-commerce-product data-product-slug="higher-mathematics" hidden>
+                                <label class="form-label" for="checkout-email">Email</label>
+                                <input class="form-input" id="checkout-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                                <label class="form-label" for="checkout-quantity">Quantity</label>
+                                <input class="form-input" id="checkout-quantity" name="quantity" type="number" min="1" max="10" value="1" required>
+                                <label class="form-label" for="shipping-name">Recipient name</label>
+                                <input class="form-input" id="shipping-name" name="name" autocomplete="name" maxlength="160" required>
+                                <label class="form-label" for="shipping-line1">Address</label>
+                                <input class="form-input" id="shipping-line1" name="line1" autocomplete="address-line1" maxlength="160" required>
+                                <label class="form-label" for="shipping-city">City</label>
+                                <input class="form-input" id="shipping-city" name="city" autocomplete="address-level2" maxlength="160" required>
+                                <label class="form-label" for="shipping-state">State</label>
+                                <input class="form-input" id="shipping-state" name="state" autocomplete="address-level1" maxlength="160" required>
+                                <label class="form-label" for="shipping-postal">Postal code</label>
+                                <input class="form-input" id="shipping-postal" name="postalCode" autocomplete="postal-code" maxlength="160" required>
+                                <label class="form-label" for="shipping-country">Country</label>
+                                <input class="form-input" id="shipping-country" name="country" autocomplete="country-name" value="India" maxlength="160" required>
+                                <button class="btn btn-primary" type="submit" data-checkout-method="standard">Continue with secure checkout</button>
+                                <button class="btn btn-secondary" type="submit" data-checkout-method="payment_link" hidden>Continue with Payment Link</button>
+                                <p class="purchase-note" data-checkout-status role="status" aria-live="polite"></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -176,6 +198,7 @@
             </div>
         </div>
     </footer>
+    <script src="/js/commerce.js" defer></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

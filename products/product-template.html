@@ -5,7 +5,11 @@
     <link rel="icon" type="image/png" href="/assets/brand/favicon/favicon-64.png">
     <meta name="robots" content="noindex,follow">
 
-    <!-- Remove noindex and add a self-referencing canonical before publishing a completed product page. -->
+    <!--
+        Copy to /bookshelf/<slug>/index.html. Use a product record from
+        /content/content-metadata.schema.json. Before publishing, remove noindex,
+        add the self-referencing canonical, and replace every metadata placeholder.
+    -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,9 +20,46 @@
         content="Explore books and learning resources available through BOOKSHELF."
     >
 
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Replace with product title | BOOKSHELF">
+    <meta property="og:description" content="Replace with the product summary.">
+    <meta property="og:url" content="https://thephysicsbeyond.com/bookshelf/replace-with-slug/">
+    <meta property="og:site_name" content="The Physics Beyond">
+    <meta property="og:image" content="https://thephysicsbeyond.com/assets/replace-with-product-image.jpg">
+    <meta property="og:image:alt" content="Describe the product image accurately.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Replace with product title | BOOKSHELF">
+    <meta name="twitter:description" content="Replace with the product summary.">
+    <meta name="twitter:image" content="https://thephysicsbeyond.com/assets/replace-with-product-image.jpg">
+    <meta name="twitter:image:alt" content="Describe the product image accurately.">
+
     <meta name="theme-color" content="#070B14">
 
-    <link rel="stylesheet" href="../css/style.css?v=typography-1">
+    <!-- <link rel="canonical" href="https://thephysicsbeyond.com/bookshelf/replace-with-slug/"> -->
+
+    <link rel="stylesheet" href="/css/style.css?v=typography-1">
+    <!-- Product JSON-LD scaffold for physical and digital products. Affiliate recommendations use a Bookshelf listing instead. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Replace with product title",
+      "description": "Replace with concise product summary",
+      "image": "https://thephysicsbeyond.com/assets/replace-with-product-image.jpg",
+      "category": "Replace with product category",
+      "brand": {
+        "@type": "Brand",
+        "name": "Replace with publisher or brand"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://thephysicsbeyond.com/bookshelf/replace-with-slug/",
+        "price": "REPLACE_WITH_CONFIRMED_PRICE",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/PreOrder"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -40,19 +81,19 @@
 
             <nav class="nav-links" aria-label="Main navigation">
 
-                <a href="../index.html">Home</a>
+                <a href="/">Home</a>
 
-                <a href="../explore.html">Explore Physics</a>
+                <a href="/explore/">Explore Physics</a>
 
-                <a href="../articles.html">Articles</a>
+                <a href="/articles/">Articles</a>
 
-                <a href="../videos.html">Videos</a>
+                <a href="/videos/">Videos</a>
 
-                <a href="../store.html" class="active" aria-current="page">
+                <a href="/bookshelf/" class="active" aria-current="page">
                     BOOKSHELF
                 </a>
 
-                <a href="../about.html">About</a>
+                <a href="/about/">About</a>
 
             </nav>
 
@@ -73,7 +114,7 @@
 
                 <nav class="product-breadcrumb" aria-label="Breadcrumb">
 
-                    <a href="../store.html">
+                    <a href="/bookshelf/">
                         BOOKSHELF
                     </a>
 
@@ -130,11 +171,11 @@
                     <div class="product-info">
 
                         <span class="category-tag">
-                            PRODUCT TYPE
+                            PHYSICAL BOOK / DIGITAL DOWNLOAD
                         </span>
 
                         <p class="product-brand">
-                            BRAND NAME
+                            AUTHOR / PUBLISHER / BRAND
                         </p>
 
                         <h1>
@@ -155,13 +196,13 @@
                                 </span>
 
                                 <span>
-                                    Paperback / Digital
+                                Set the specific physical or digital format
                                 </span>
                             </div>
 
                             <div>
                                 <span class="product-meta-label">
-                                    Category
+                                Product category
                                 </span>
 
                                 <span>
@@ -174,12 +215,11 @@
 
                         <div class="product-purchase">
 
-                            <div class="product-price">
-                                Price
-                            </div>
+                            <!-- Show a confirmed price and currency. If no fixed price is published, explain how to enquire. -->
+                            <div class="product-price">PRICE AND CURRENCY</div>
 
                             <span class="product-availability">
-                                Availability information
+                                State stock or availability, delivery estimate, shipping policy, and fulfillment status.
                             </span>
 
                             <button
@@ -187,12 +227,11 @@
                                 class="btn btn-primary"
                                 disabled
                             >
-                                Buy Now
+                                Replace with the correct live action, or remove this disabled placeholder before publishing.
                             </button>
 
                             <p class="purchase-note">
-                                Purchasing will be enabled when this
-                                product is available.
+                                Do not enable this button until the product's real order or delivery workflow is available.
                             </p>
 
                         </div>
@@ -511,35 +550,35 @@
 
                 <div class="footer-links">
 
-                    <a href="../index.html">
+                    <a href="/">
                         Home
                     </a>
 
-                    <a href="../explore.html">
+                    <a href="/explore/">
                         Explore Physics
                     </a>
 
-                    <a href="../articles.html">
+                    <a href="/articles/">
                         Articles
                     </a>
 
-                    <a href="../videos.html">
+                    <a href="/videos/">
                         Videos
                     </a>
 
-                    <a href="../store.html">
+                    <a href="/bookshelf/">
                         BOOKSHELF
                     </a>
 
-                    <a href="../about.html">
+                    <a href="/about/">
                         About
                     </a>
 
-                    <a href="../contact.html">
+                    <a href="/contact/">
                         Contact
                     </a>
 
-                    <a href="../privacy.html">
+                    <a href="/privacy/">
                         Privacy
                     </a>
 

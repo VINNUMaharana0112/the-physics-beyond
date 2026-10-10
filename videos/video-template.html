@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,follow">
 
-    <!-- Copy to /videos/<slug>/index.html and replace every placeholder before publishing. -->
+    <!-- Copy to /videos/<slug>/index.html. Keep an editorial record conforming to /content/content-metadata.schema.json (type: video or reel). -->
 
     <title>Replace with video title | The Physics Beyond</title>
     <meta name="description" content="Replace with a concise summary of this video.">
@@ -32,7 +32,11 @@
         Before publishing a finished video page, remove the noindex directive above
         and add a self-referencing canonical URL for its published slug.
         Replace every value in the VideoObject JSON-LD scaffold below before publishing.
-        Social-card metadata belongs to Phase 2.3.
+        Match this page to its metadata record: title, description, category, author, language,
+        canonical URL, publication date, platform ID/URL, thumbnail, and durationSeconds.
+        Use this page layout for a Reel landing page too; store its real platform, portrait
+        aspect ratio, caption, and public watch URL in the Reel metadata record. Keep the
+        visible details, embed, social tags, and VideoObject JSON-LD in sync.
     -->
 
     <script type="application/ld+json">

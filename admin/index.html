@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="commerce-api-base" content="">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Store admin | The Physics Beyond</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <h1>Store admin</h1>
+    <p class="admin-muted">Manage products, paid orders, fulfilment, and separately disclosed affiliate recommendations.</p>
+    <section class="admin-card">
+      <p id="admin-status" role="status" aria-live="polite">Connecting to the commerce API…</p>
+      <a id="sign-in" class="btn btn-primary" hidden>Sign in with the configured identity provider</a>
+      <button id="sign-out" class="btn btn-secondary" type="button" hidden>Sign out</button>
+    </section>
+
+    <div id="admin-app" hidden>
+      <section class="admin-card">
+        <h2>Products</h2>
+        <p class="admin-muted">Activation requires an operator to confirm the payable price and fulfilment setup. A digital product also needs its file uploaded to private storage. The current Higher Mathematics record stays inactive until its listed ₹756 is confirmed to cover all charges and fulfilment is ready.</p>
+        <form id="product-form" class="admin-grid">
+          <input type="hidden" name="id">
+          <label>Title<input name="title" maxlength="200" required></label>
+          <label>Slug<input name="slug" maxlength="120" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" required></label>
+          <label>Type<select name="kind"><option value="physical_book">Physical book</option><option value="digital_download">Digital download</option></select></label>
+          <label>Price in minor units (₹756 = 75,600 paise)<input name="priceMinor" type="number" min="1" max="100000000" step="1" required></label>
+          <label>Currency<input name="currency" value="INR" maxlength="3" pattern="[A-Z]{3}" required></label>
+          <label>Inventory count (blank means no stock limit; confirm this before activation)<input name="stock" type="number" min="0" step="1"></label>
+          <label class="wide">Description<textarea name="description" maxlength="5000" rows="3"></textarea></label>
+          <label><span><input name="priceConfirmed" type="checkbox"> Final price and all payable charges confirmed</span></label>
+          <label><span><input name="fulfillmentReady" type="checkbox"> Fulfilment setup confirmed</span></label>
+          <label><span><input name="active" type="checkbox"> Active for checkout</span></label>
+          <label><span><input name="paymentLinkEnabled" type="checkbox"> Allow Payment Link for this product</span></label>
+          <div class="admin-actions wide">
+            <button class="btn btn-primary" type="submit">Save product</button>
+            <button class="btn btn-secondary" id="new-product" type="button">New product</button>
+          </div>
+        </form>
+        <form id="file-form" class="admin-actions" hidden>
+          <label>Private digital file <input name="file" type="file" accept=".pdf,.epub,.zip,application/pdf,application/epub+zip,application/zip" required></label>
+          <button class="btn btn-secondary" type="submit">Upload private file</button>
+        </form>
+        <div id="products-list" class="admin-list"></div>
+      </section>
+
+      <section class="admin-card">
+        <h2>Orders and fulfilment</h2>
+        <p class="admin-muted">Payment state is provider-confirmed. Physical stock is reserved when checkout begins and restored if payment fails. Shipping status can only advance on paid orders.</p>
+        <div id="orders-list" class="admin-list"></div>
+      </section>
+
+      <section class="admin-card">
+        <h2>Affiliate recommendations</h2>
+        <p class="admin-muted">Affiliate offers are maintained separately from paid products and never create a Razorpay order. A clear commission disclosure is required before an offer can be active.</p>
+        <form id="affiliate-form" class="admin-grid">
+          <input type="hidden" name="id">
+          <label>Title<input name="title" maxlength="200" required></label>
+          <label>Publisher or author<input name="publisher" maxlength="200" required></label>
+          <label>HTTPS destination<input name="url" type="url" required></label>
+          <label class="wide">Disclosure<textarea name="disclosure" maxlength="1000" rows="2" required></textarea></label>
+          <label><span><input name="active" type="checkbox"> Publicly list this offer</span></label>
+          <div class="admin-actions wide"><button class="btn btn-primary" type="submit">Save affiliate offer</button><button id="new-affiliate" class="btn btn-secondary" type="button">New offer</button></div>
+        </form>
+        <div id="affiliates-list" class="admin-list"></div>
+      </section>
+    </div>
+  </main>
+  <script src="/js/admin.js" defer></script>
+</body>
+</html>
