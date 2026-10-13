@@ -1,4 +1,6 @@
 node_modules/
+studio/.sanity/
+studio/dist/
 .env
 .env.*
 !.env.example

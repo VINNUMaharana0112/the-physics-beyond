@@ -1,0 +1,17 @@
+{
+  "name": "the-physics-beyond-studio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sanity dev",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "@sanity/icons": "^3.7.4",
+    "sanity": "^6.0.0",
+    "styled-components": "^6.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
